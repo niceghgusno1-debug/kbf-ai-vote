@@ -1,0 +1,79 @@
+[
+  {
+    "name": "코봉이",
+    "english": "KOBONGI",
+    "tagline": "KBF의 첫 AI 동료",
+    "reason": "KBF + Robot + AI를 결합한 이름으로, 가장 친근하게 부를 수 있는 AI 구성원입니다.",
+    "recommender": "김은미 PM"
+  },
+  {
+    "name": "벙코",
+    "english": "BUNGKO",
+    "tagline": "행복을 전하는 벙커 파트너",
+    "reason": "벙커(Bunker)와 행복코끼리의 ‘코’를 결합한 이름으로, 친근함과 신뢰를 담았습니다.",
+    "recommender": "이왕용 PM"
+  },
+  {
+    "name": "포비",
+    "english": "FOBI",
+    "tagline": "FO의 든든한 조력자",
+    "reason": "FO + Bunker를 결합한 이름으로, KBF의 업무 정체성을 직관적으로 표현합니다.",
+    "recommender": "이준민 PM"
+  },
+  {
+    "name": "KAILY",
+    "english": "KAILY",
+    "tagline": "매일 함께하는 AI",
+    "reason": "KBF Daily Report를 맡아주고 책임지는 AI Analyst의 역할을 담은 이름입니다.",
+    "recommender": "이양수 PM"
+  },
+  {
+    "name": "강지원",
+    "english": "KANG JIWON",
+    "tagline": "강력한 지원군",
+    "reason": "KBF의 유구한 전통을 상징하는 ‘강’과 Support를 의미하는 ‘지원’을 결합했습니다.",
+    "recommender": "한송이 PM"
+  },
+  {
+    "name": "BORA",
+    "english": "BORA",
+    "tagline": "보기만 하세요",
+    "reason": "Bunker Operational Research Agent/Analyst의 약자로, 한국말 ‘보라’처럼 보기만 하면 된다는 중의적 의미를 담았습니다.",
+    "recommender": "강미진 PL"
+  },
+  {
+    "name": "광나루",
+    "english": "GWANGNARU",
+    "tagline": "시장을 밝히는 길잡이",
+    "reason": "글로벌 해상에너지 시장의 흐름을 밝히는 ‘광’과 시장과 사람을 연결하는 ‘나루’를 결합한 이름입니다.",
+    "recommender": "이종혁 PM"
+  },
+  {
+    "name": "PulselA",
+    "english": "펄시아",
+    "tagline": "시장의 맥박을 읽다",
+    "reason": "Pulse Intelligent Agent의 줄임말로, 시장의 맥박을 실시간으로 파악해 Trading을 지원하는 AI를 의미합니다.",
+    "recommender": "김경빈 PM"
+  },
+  {
+    "name": "막내",
+    "english": "MAKNAE",
+    "tagline": "가장 성실한 구성원",
+    "reason": "팀 내 루틴 업무와 궂은 일을 도맡아 적극적으로 처리하는 AI 구성원을 의미합니다.",
+    "recommender": "윤기영 PM"
+  },
+  {
+    "name": "BFOcus",
+    "english": "B-FOcus",
+    "tagline": "일잘러 AI",
+    "reason": "Bunker + FO + Focus를 결합한 이름으로, Bunker, FO, Focus의 의미를 모두 담은 AI 구성원입니다.",
+    "recommender": "이민선 PM"
+  },
+  {
+    "name": "AMARON",
+    "english": "AMARON",
+    "tagline": "Asia Marine Fuel No.1",
+    "reason": "아시아 마린퓨얼 넘버원을 지향하는 KBF AI Analyst의 포부를 담은 이름입니다.",
+    "recommender": "강권희 PM"
+  }
+]
