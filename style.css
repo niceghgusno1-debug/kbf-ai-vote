@@ -2,147 +2,226 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  background: #1b120c;
+  min-height: 100%;
+  background: #120907;
   color: #3a2a1d;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Noto Serif KR", serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
 }
 
 .page {
   display: none;
   position: relative;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 430px;
+  
+  margin: 116px auto 0;
+  margin-top: 95px;
+  height: calc(100dvh - 95px);
   overflow: hidden;
+  background: #120907;
 }
 
 .page.active {
   display: block;
+  animation: pageFadeIn 0.5s ease both;
 }
 
-.scroll-page {
-  overflow-y: auto;
-  background: #f5ead7;
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.01);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .bg-img {
   width: 100%;
-  height: 100vh;
-  object-fit: contain;
+  height: calc(100dvh - 116px);
+  object-fit: cover;
   display: block;
-  background: #1b120c;
+}
+/* Intro transition */
+#pageHero2 img,
+#pageHero3 img {
+  animation: luxuryOpen 0.65s ease both;
 }
 
-.vote-bg {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  opacity: 0.45;
-  z-index: 0;
-}
-.seal-hotspot {
-  position: absolute;
-  left: 50%;
-  top: 53%;
-  transform: translate(-50%, -50%);
-  width: 130px;
-  height: 130px;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
+@keyframes luxuryOpen {
+  from {
+    transform: scale(1);
+    filter: brightness(0.9);
+  }
+  to {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+  }
 }
 
 .bottom-guide {
   position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 38px;
+  left: 28px;
+  right: 28px;
+  bottom: 36px;
   padding: 14px 18px;
   border-radius: 999px;
-  background: rgba(30, 18, 10, 0.65);
-  color: #f8e6bd;
+  background: rgba(24, 12, 8, 0.7);
+  color: #f5dfae;
   text-align: center;
   font-size: 14px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
+/* Invitation text: upper dark area */
 .invitation-text {
   position: absolute;
-  left: 32px;
-  right: 32px;
-  top: 14%;
+  left: 28px;
+  right: 28px;
+  top: 9%;
   text-align: center;
-  color: #3a2a1d;
+  color: #f2dfb8;
+  animation: textReveal 0.9s ease 0.35s both;
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .eyebrow {
-  margin: 0 0 16px;
-  color: #b68a3a;
+  margin: 0 0 12px;
+  color: #d3a449;
   letter-spacing: 4px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
 }
 
-.invitation-text h1,
-.thankyou-text h1 {
-  margin: 0 0 26px;
-  font-size: 34px;
-  line-height: 1.18;
-  color: #5b3b18;
+.invitation-text h1 {
+  margin: 0 0 16px;
+  font-size: 29px;
+  line-height: 1.12;
+  color: #d7aa55;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.45);
 }
 
 .invitation-text p {
-  line-height: 1.85;
-  font-size: 16px;
+  margin: 0;
+  line-height: 1.65;
+  font-size: 14px;
+  color: #f5ead7;
+  word-break: keep-all;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.45);
 }
 
 .gold-btn,
 .vote-btn {
   width: 100%;
-  margin-top: 24px;
+  margin-top: 20px;
   border: none;
   border-radius: 999px;
-  padding: 16px;
+  padding: 15px;
   background: linear-gradient(135deg, #d3a449, #8f6424);
   color: white;
   font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 14px 32px rgba(80, 45, 12, 0.32);
+  box-shadow: 0 14px 32px rgba(80, 45, 12, 0.42);
+  cursor: pointer;
+}
+
+/* Vote page */
+.scroll-page {
+  height: 100dvh;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at top, rgba(120, 34, 31, 0.75), transparent 32%),
+    linear-gradient(180deg, #3b1110 0%, #210b08 45%, #110604 100%);
+}
+
+.scroll-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  max-width: 430px;
+  margin: 0 auto;
+  background:
+    radial-gradient(circle at top, rgba(218, 174, 84, 0.2), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,0.05), transparent 40%);
+  pointer-events: none;
 }
 
 .vote-content {
   position: relative;
   z-index: 1;
-  padding: 34px 24px 60px;
-  max-width: 520px;
+  padding: 104px 18px 96px;
+  max-width: 390px;
   margin: 0 auto;
 }
 
 .vote-content h2 {
-  margin: 0 0 22px;
-  color: #4b321d;
+  margin: 0 0 14px;
+  color: #fff4dc;
   font-size: 24px;
   text-align: center;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.vote-count {
+  margin: 12px auto 8px;
+  width: fit-content;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.94);
+  border: 1px solid rgba(211, 164, 73, 0.55);
+  color: #8f6424;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.vote-guide {
+  margin: 0 0 24px;
+  text-align: center;
+  color: #ead6ad;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .candidate-card {
-  background: rgba(255, 252, 245, 0.88);
-  border: 1px solid rgba(181, 139, 69, 0.35);
-  border-radius: 18px;
-  margin-bottom: 13px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(211,164,73,0.35);
+  border-radius: 20px;
+  margin-bottom: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(59, 38, 18, 0.08);
-  backdrop-filter: blur(3px);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
 }
 
 .candidate-main {
   display: grid;
   grid-template-columns: 28px 38px 1fr;
   gap: 10px;
-  padding: 17px;
+  padding: 18px;
   align-items: start;
   cursor: pointer;
 }
@@ -162,12 +241,13 @@ body {
 .candidate-text h3 {
   margin: 0 0 3px;
   font-size: 23px;
-  color: #3a2a1d;
+  color: #d3a449;
+  font-weight: 700;
 }
 
 .candidate-text span {
   display: block;
-  color: #a87931;
+  color: #e2c47a;
   font-size: 11px;
   letter-spacing: 2px;
   margin-bottom: 7px;
@@ -176,25 +256,37 @@ body {
 .candidate-text p {
   margin: 0;
   font-size: 14px;
-  color: #5d4d3c;
+  color: #f2ead9;
   line-height: 1.45;
 }
 
 .detail-toggle {
   width: calc(100% - 34px);
-  margin: 0 17px 15px;
-  padding: 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(181, 139, 69, 0.35);
-  background: rgba(255, 250, 240, 0.5);
-  color: #8f6424;
-  font-size: 13px;
+  margin: 0 17px 16px;
+  padding: 11px 0;
+  border: none;
+  border-top: 1px solid rgba(211, 164, 73, 0.28);
+  background: transparent;
+  color: #d3a449;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.detail-toggle span::after {
+  content: " 〉";
+  font-size: 12px;
+}
+
+.candidate-detail.open + .detail-toggle span::after {
+  content: " ︿";
 }
 
 .candidate-detail {
   display: none;
   padding: 0 18px 18px 82px;
-  color: #5d4d3c;
+  color: #f2ead9;
   font-size: 14px;
   line-height: 1.7;
 }
@@ -210,85 +302,299 @@ body {
 }
 
 .candidate-card.selected {
-  border-color: #b68a3a;
-  box-shadow: 0 12px 34px rgba(181, 139, 69, 0.28);
-}
+    border-color:#d4af37;
 
-.thankyou-text {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  top: 32%;
-  text-align: center;
-  color: #3a2a1d;
-}
-
-.thankyou-text p {
-  font-size: 17px;
-}
-
-.vote-count {
-  margin: 10px auto 8px;
-  width: fit-content;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: rgba(255, 250, 240, 0.82);
-  border: 1px solid rgba(181, 139, 69, 0.4);
-  color: #8f6424;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.vote-guide {
-  margin: 0 0 22px;
-  text-align: center;
-  color: #6a5540;
-  font-size: 14px;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  background: #1b120c;
-}
-
-.page {
-  width: 100%;
-  max-width: 430px;
-  min-height: 100dvh;
-  margin: 0 auto;
-}
-
-.bg-img {
-  width: 100%;
-  height: 100dvh;
-  object-fit: cover;
-}
-
-.scroll-page {
-  width: 100%;
-  max-width: 430px;
-  height: 100dvh;
-  overflow-y: auto;
-  background-image: url("assets/vote-background.png");
-  background-size: cover;
-  background-position: top center;
-}
-
-.vote-bg {
-  display: none;
-}
-
-.vote-content {
-  padding: 28px 18px 90px;
-  max-width: 390px;
-}
-
-.candidate-card {
-  background: rgba(255, 252, 245, 0.94);
+    box-shadow:
+    0 0 0 1px rgba(212,175,55,.7),
+    0 0 25px rgba(212,175,55,.35),
+    0 0 60px rgba(212,175,55,.15);
 }
 
 .vote-btn {
   position: sticky;
   bottom: 16px;
+  margin-top: 24px;
+}
+
+
+
+/* Tap highlight */
+button,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 360px) {
+  .invitation-text {
+    left: 24px;
+    right: 24px;
+    top: 10%;
+  }
+
+  .invitation-text h1 {
+    font-size: 25px;
+  }
+
+  .invitation-text p {
+    font-size: 13px;
+  }
+
+  .candidate-text h3 {
+    font-size: 21px;
+  }
+
+}
+
+/* FINAL OVERRIDE - Invitation position */
+#pageInvitation .invitation-text {
+  position: absolute !important;
+  left: 30px !important;
+  right: 30px !important;
+  top: 44% !important;
+  transform: none !important;
+  text-align: center !important;
+  z-index: 5 !important;
+}
+
+#pageInvitation .invitation-text h1 {
+  font-weight: 800;
+  font-size: 27px !important;
+  line-height: 1.12 !important;
+  margin: 0 0 14px !important;
+}
+
+#pageInvitation .invitation-text p {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  margin: 0 !important;
+}
+
+#pageInvitation .gold-btn {
+  margin-top: 22px !important;
+}
+
+/* Invitation image button hotspot */
+.invitation-hotspot {
+  position: absolute;
+  left: 50%;
+  bottom: 5.8%;
+  transform: translateX(-50%);
+  width: 78%;
+  height: 68px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.invitation-hotspot:active {
+  transform: translateX(-50%) scale(0.96);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.soft-change {
+  animation: softChange 0.25s ease;
+}
+
+@keyframes softChange {
+  from {
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* 체크박스 숨김 */
+.candidate-main input[type="checkbox"] {
+  display: none;
+}
+
+/* 선택 전 카드 */
+.candidate-card {
+  position: relative;
+}
+
+/* 선택된 카드에만 고급 표시 */
+.candidate-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #d3a449;
+  color: #2b120d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* 카드 내부 그리드도 체크박스 빠진 기준으로 정렬 */
+.candidate-main {
+  grid-template-columns: 38px 1fr !important;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(211, 164, 73, 0.5);
+  background: rgba(255, 252, 245, 0.95);
+  color: #3a2a1d;
+  font-size: 15px;
+  text-align: center;
+  margin: 20px 0 0;
+}
+
+.result-list {
+  margin-top: 24px;
+}
+
+.result-card {
+  display: grid;
+  grid-template-columns: 42px 1fr 60px;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(211, 164, 73, 0.42);
+  background: rgba(255, 252, 245, 0.95);
+  color: #3a2a1d;
+}
+
+.result-card span {
+  color: #b68a3a;
+  letter-spacing: 2px;
+}
+
+.result-card strong {
+  font-size: 18px;
+}
+
+.result-card em {
+  font-style: normal;
+  color: #8f6424;
+  font-weight: 700;
+  text-align: right;
+}
+
+.empty-result {
+  color: #f5ead7;
+  text-align: center;
+}
+
+.reset-btn {
+  width: 100%;
+  margin-top: 12px;
+  border: 1px solid rgba(211, 164, 73, 0.45);
+  border-radius: 999px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d3a449;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+
+.admin-hotspot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 80px;
+  height: 80px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  opacity: 0;
+}
+
+.countdown-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 430px;
+
+  height: 95px;
+
+  z-index: 9999;
+
+  background: #120907;
+
+  border-bottom: 1px solid rgba(211,164,73,.25);
+
+  padding: 8px 12px;
+}
+
+.countdown-title {
+  text-align: center;
+
+  color: #a67c35;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 8px;
+}
+
+.countdown-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 6px;
+}
+
+.count-box {
+  background: rgba(255,255,255,.03);
+
+  border: 1px solid rgba(211,164,73,.25);
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  padding: 6px 4px;
+}
+
+.count-box strong {
+  display: block;
+
+  color: #d3a449;
+
+  font-size: 26px;
+
+  font-family: "Roboto Mono", monospace;
+
+  text-shadow:
+    0 0 6px rgba(211,164,73,.4),
+    0 0 12px rgba(211,164,73,.2);
+}
+
+.count-box span {
+  display: block;
+
+  color: #a67c35;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  margin-top: 4px;
 }

@@ -5,38 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KBF AI Analyst Naming Ceremony</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+ <div class="countdown-header">
+  <div class="countdown-title">VOTING CLOSES IN</div>
 
-<section id="pageEnvelope" class="page active" onclick="goToPage('pageInvitation')">
-  <img src="assets/hero-invitation.png" class="bg-img" alt="Invitation Envelope" />
-  <div class="bottom-guide">화면을 눌러 초청장을 열어주세요</div>
+  <div class="countdown-grid">
+    <div class="count-box">
+      <strong id="countDays">00</strong>
+      <span>DAY</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="countHours">00</strong>
+      <span>HR</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="countMinutes">00</strong>
+      <span>MIN</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="countSeconds">00</strong>
+      <span>SEC</span>
+    </div>
+  </div>
+</div>
+  <section id="pageHeroDrag" class="page active">
+  <img id="heroDragImage" src="assets/hero-invitation1.png" class="bg-img" alt="Luxury Box" />
+  <div class="bottom-guide">위로 밀어 초청장을 열어주세요</div>
 </section>
 
 <section id="pageInvitation" class="page">
-  <img src="assets/invitation-card.png" class="bg-img" alt="Invitation Card" />
-  <div class="invitation-text">
-    <p class="eyebrow">PRIVATE INVITATION</p>
-    <h1>KBF AI Analyst<br>Naming Ceremony 2026</h1>
-    <p>
-      선배님들,<br><br>
-      KBF 최초의 AI 구성원이<br>
-      정식 입사를 앞두고 있습니다.<br><br>
-      이제 이 구성원에게<br>
-      이름을 선물해 주세요.
-    </p>
-    <button class="gold-btn" onclick="goToPage('pageVote')">후보 보기</button>
-  </div>
+  <img src="assets/hero-invitation4.png" class="bg-img" alt="Invitation Card" />
+
+  <button class="invitation-hotspot" onclick="goToPage('pageVote')" aria-label="후보 보기"></button>
 </section>
 
 <section id="pageVote" class="page scroll-page">
-  
-
   <div class="vote-content">
     <p class="eyebrow">NOMINEE SELECTION</p>
-<h2>AI 구성원 이름을 선택해 주세요</h2>
-<div id="voteCount" class="vote-count">0 / 3 선택</div>
-<p class="vote-guide">마음에 드는 후보를 최대 3개까지 선택해 주세요.</p>
+    <h2>AI 구성원 이름을 선택해 주세요</h2>
+
+    <div id="voteCount" class="vote-count">0 / 3 선택</div>
+    
+    <p class="vote-guide">마음에 드는 후보를 최대 3개까지 선택해 주세요.</p>
 
     <div id="candidate-list"></div>
 
@@ -46,12 +65,24 @@
 
 <section id="pageThankyou" class="page">
   <img src="assets/thankyou-background.png" class="bg-img" alt="Thank You" />
-  <div class="thankyou-text">
-    <p class="eyebrow">KOREA BUNKER FO</p>
-    <h1>THANK YOU</h1>
-    <p>Your Vote Has Been Recorded.</p>
+
+  </section>
+
+
+<section id="pageAdmin" class="page scroll-page">
+  <div class="vote-content">
+    <p class="eyebrow">ADMIN RESULT</p>
+    <h2>투표 결과</h2>
+
+    <input id="adminPassword" class="admin-input" type="password" placeholder="비밀번호 입력" />
+
+    <button class="vote-btn" onclick="loadResults()">결과 보기</button>
+    <button class="reset-btn" onclick="resetVotes()">  투표 초기화 </button>
+    <div id="result-list" class="result-list"></div>
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="script.js"></script>
 </body>
